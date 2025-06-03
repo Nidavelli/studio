@@ -1,8 +1,12 @@
+
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { skillsData } from '@/data/skills';
 import { FadeIn } from './FadeIn';
+import { Button } from './ui/button';
+import Link from 'next/link';
+import { Download, Linkedin } from 'lucide-react';
 
 export default function AboutSection() {
   return (
@@ -11,16 +15,27 @@ export default function AboutSection() {
         <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12 text-primary">
           About Me
         </h2>
-        <div className="grid md:grid-cols-3 gap-8 items-center">
-          <div className="md:col-span-1 flex justify-center">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="md:col-span-1 flex flex-col items-center">
             <Image
               src="https://placehold.co/400x400.png"
               alt="James Kuria"
               width={300}
               height={300}
-              className="rounded-full shadow-lg border-4 border-primary"
+              className="rounded-full shadow-lg border-4 border-primary mb-6"
               data-ai-hint="professional portrait"
             />
+             <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 w-full max-w-xs mb-2">
+                {/* This link is a placeholder. Replace # with the actual path to the resume PDF. */}
+                <a href="#" download="James_Kuria_Resume.pdf"> 
+                  <Download className="mr-2 h-5 w-5" /> Download Resume
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 w-full max-w-xs">
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="mr-2 h-5 w-5" /> View LinkedIn Profile
+                </a>
+              </Button>
           </div>
           <div className="md:col-span-2">
             <p className="text-lg text-foreground mb-6">

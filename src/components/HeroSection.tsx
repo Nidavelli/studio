@@ -3,7 +3,7 @@ import Image from 'next/image';
 import AnimatedText from './AnimatedText';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Download, MessageCircle } from 'lucide-react'; // Added Download and MessageCircle
 import { FadeIn } from './FadeIn';
 
 export default function HeroSection() {
@@ -23,14 +23,25 @@ export default function HeroSection() {
             <p className="max-w-xl mx-auto md:mx-0 text-lg md:text-xl text-muted-foreground mb-10">
               Leveraging expertise in project leadership, strategic planning, and digital innovation to drive impactful business outcomes.
             </p>
-            <div className="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row justify-center md:justify-start">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto">
                 <Link href="/projects">View My Work</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
-                <Link href="/contact">Get In Touch</Link>
+              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 w-full sm:w-auto">
+                {/* This link is a placeholder. Replace # with the actual path to the resume PDF. */}
+                <a href="#" download="James_Kuria_Resume.pdf"> 
+                  <Download className="mr-2 h-5 w-5" /> Download Resume
+                </a>
               </Button>
             </div>
+             <div className="mt-4 flex justify-center md:justify-start">
+                <Button asChild variant="link" className="text-accent hover:text-accent/80 px-0">
+                    <Link href="/contact">
+                        <MessageCircle className="mr-2 h-5 w-5" /> Schedule a Consultation
+                    </Link>
+                </Button>
+            </div>
+
             <div className="mt-12 md:mt-16 text-center md:text-left">
               <a href="#about" aria-label="Scroll to about section" className="inline-block animate-bounce">
                 <ArrowDown className="h-8 w-8 text-primary mx-auto md:mx-0" />
@@ -44,7 +55,7 @@ export default function HeroSection() {
               layout="fill"
               objectFit="cover"
               className="rounded-lg shadow-xl border-4 border-primary/20"
-              data-ai-hint="modern workspace"
+              data-ai-hint="modern workspace professional"
               priority
             />
           </div>

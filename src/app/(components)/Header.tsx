@@ -2,7 +2,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Briefcase, Mail, Menu, X } from 'lucide-react';
+import { Home, Briefcase, Mail, Menu, X, Sparkles } from 'lucide-react'; // Added Sparkles for Services
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { useState } from 'react';
@@ -12,6 +12,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/projects', label: 'Projects', icon: Briefcase },
+  { href: '/services', label: 'Services', icon: Sparkles }, // Added Services Link
   { href: '/contact', label: 'Contact', icon: Mail },
 ];
 

@@ -1,5 +1,9 @@
+
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import ExperienceSection from '@/components/ExperienceSection';
+import EducationCertificationsSection from '@/components/EducationCertificationsSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import { FadeIn } from '@/components/FadeIn';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -9,6 +13,10 @@ export default function Home() {
     <div className="space-y-16 md:space-y-24">
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
+      <EducationCertificationsSection />
+      <TestimonialsSection />
+      
       <FadeIn className="text-center py-12 md:py-16 bg-muted rounded-lg shadow-inner">
         <h2 className="text-3xl md:text-4xl font-bold font-headline mb-6 text-primary">
           Ready to collaborate?
