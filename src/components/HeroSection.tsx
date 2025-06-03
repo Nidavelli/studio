@@ -17,7 +17,7 @@ export default function HeroSection() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-headline mb-6 text-primary">
               Hi, I&apos;m James Kuria
             </h1>
-            <div className="text-2xl sm:text-3xl md:text-4xl font-headline mb-8 text-foreground h-12 md:h-16">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-headline mb-8 text-foreground min-h-16 sm:min-h-20 md:min-h-20">
               I am a <AnimatedText texts={roles} className="text-accent" />
             </div>
             <p className="max-w-xl mx-auto md:mx-0 text-lg md:text-xl text-muted-foreground mb-10">
