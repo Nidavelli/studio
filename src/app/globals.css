@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,97 +9,95 @@ html {
 
 @layer base {
   :root {
-    --background: 340 27% 96.1%; /* User: #faf1f3 */
-    --foreground: 342 41% 6.7%; /* User: #19090d */
+    --background: 200 86% 98%; /* User Light: #f6fcfe */
+    --foreground: 200 87% 8%; /* User Light: #031c26 */
 
-    --muted: 340 20% 92%; /* Derived: #f0e8ea */
-    --muted-foreground: 342 10% 35%; /* Derived: #65585c */
+    --muted: 200 60% 95%; /* Derived from Light Background */
+    --muted-foreground: 200 10% 45%; /* Derived for Light Muted Text */
 
-    --popover: 340 40% 98%; /* Derived: #fdf7f8 */
-    --popover-foreground: 342 41% 6.7%; /* User: #19090d */
+    --popover: 200 86% 99%; /* Derived from Light Background */
+    --popover-foreground: 200 87% 8%; /* User Light: #031c26 */
 
-    --card: 340 33% 96.5%; /* Derived: #fbf3f5, slightly off background */
-    --card-foreground: 342 41% 6.7%; /* User: #19090d */
+    --card: 200 70% 97%; /* Derived from Light Background */
+    --card-foreground: 200 87% 8%; /* User Light: #031c26 */
 
-    --border: 340 18% 87.6%; /* Derived: #e5d9dc */
-    --input: 340 20% 90%; /* Derived: #ebe1e4 */
+    --border: 200 30% 90%; /* Derived for Light Border */
+    --input: 200 30% 93%; /* Derived for Light Input */
 
-    --primary: 346 44.1% 52.2%; /* User: #bc4e67 */
-    --primary-foreground: 342 47.1% 93.1%; /* User Dark Text: #f6e5e9 */
+    --primary: 200 87% 51%; /* User Light: #17adee */
+    --primary-foreground: 200 86% 98%; /* Derived for text on Light Primary */
 
-    --secondary: 69 42.1% 72.9%; /* User: #d1d99b */
-    --secondary-foreground: 342 41% 6.7%; /* User Light Text: #19090d */
+    --secondary: 243 88% 70%; /* User Light: #7971f4 */
+    --secondary-foreground: 200 87% 8%; /* User Light: #031c26 for text on Light Secondary */
 
-    --accent: 89 39.8% 62.9%; /* User: #a3cb76 */
-    --accent-foreground: 342 41% 6.7%; /* User Light Text: #19090d */
+    --accent: 258 87% 65%; /* User Light: #8e4cf0 */
+    --accent-foreground: 200 87% 8%; /* User Light: #031c26 for text on Light Accent */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring: 346 44.1% 52.2%; /* User Primary: #bc4e67 */
+    --ring: 200 87% 51%; /* User Light Primary: #17adee */
 
-    --radius: 0.5rem;
-
-    --chart-1: 346 44.1% 52.2%; /* Primary */
-    --chart-2: 89 39.8% 62.9%;  /* Accent */
-    --chart-3: 69 42.1% 72.9%;  /* Secondary */
-    --chart-4: 346 44% 72%;    /* Lighter Primary */
-    --chart-5: 89 40% 83%;     /* Lighter Accent */
+    --chart-1: 200 87% 51%; /* Primary */
+    --chart-2: 258 87% 65%;  /* Accent */
+    --chart-3: 243 88% 70%;  /* Secondary */
+    --chart-4: 200 87% 71%;    /* Lighter Primary */
+    --chart-5: 258 87% 85%;     /* Lighter Accent */
     
-    --sidebar-background: 340 28% 97%; /* #fbf4f6 */
-    --sidebar-foreground: 342 41% 10%;
-    --sidebar-primary: 346 44% 48%;
-    --sidebar-primary-foreground: 340 67% 98%;
-    --sidebar-accent: 69 42% 78%;
-    --sidebar-accent-foreground: 342 41% 10%;
-    --sidebar-border: 340 20% 90%;
-    --sidebar-ring: 346 44.1% 52.2%;
+    --sidebar-background: 200 70% 97.5%; /* Derived for Light Sidebar BG */
+    --sidebar-foreground: 200 87% 10%;
+    --sidebar-primary: 200 87% 48%;
+    --sidebar-primary-foreground: 200 86% 98%;
+    --sidebar-accent: 243 88% 75%;
+    --sidebar-accent-foreground: 200 87% 10%;
+    --sidebar-border: 200 30% 90%;
+    --sidebar-ring: 200 87% 51%;
   }
 
   .dark {
-    --background: 345 41.2% 4.7%; /* User: #0f0507 */
-    --foreground: 342 47.1% 93.1%; /* User: #f6e5e9 */
+    --background: 200 80% 2%; /* User Dark: #010709 */
+    --foreground: 200 86% 92%; /* User Dark: #d9f2fc */
 
-    --muted: 345 20% 12%; /* Derived: #261a1d */
-    --muted-foreground: 342 15% 65%; /* Derived: #b3a2a7 */
+    --muted: 200 40% 10%; /* Derived from Dark Background */
+    --muted-foreground: 200 20% 65%; /* Derived for Dark Muted Text */
 
-    --popover: 345 25% 10%; /* Derived: #201517 */
-    --popover-foreground: 342 47.1% 93.1%; /* User: #f6e5e9 */
+    --popover: 200 50% 8%; /* Derived from Dark Background */
+    --popover-foreground: 200 86% 92%; /* User Dark: #d9f2fc */
 
-    --card: 345 30% 8%; /* Derived: #1a1113, slightly off background */
-    --card-foreground: 342 47.1% 93.1%; /* User: #f6e5e9 */
+    --card: 200 60% 7%; /* Derived from Dark Background */
+    --card-foreground: 200 86% 92%; /* User Dark: #d9f2fc */
 
-    --border: 345 20% 15%; /* Derived: #2e1f22 */
-    --input: 345 20% 17%; /* Derived: #352327 */
+    --border: 200 30% 15%; /* Derived for Dark Border */
+    --input: 200 30% 20%; /* Derived for Dark Input */
 
-    --primary: 346 48.9% 47.8%; /* User: #b1435d */
-    --primary-foreground: 342 47.1% 93.1%; /* User Dark Text: #f6e5e9 */
+    --primary: 200 88% 49%; /* User Dark: #11a8e8 */
+    --primary-foreground: 200 86% 92%; /* Derived for text on Dark Primary */
 
-    --secondary: 67 44.9% 27.5%; /* User: #5c6426 */
-    --secondary-foreground: 342 47.1% 93.1%; /* User Dark Text: #f6e5e9 */
+    --secondary: 244 88% 30%; /* User Dark: #130b8e */
+    --secondary-foreground: 200 86% 92%; /* User Dark: #d9f2fc for text on Dark Secondary */
 
-    --accent: 89 43.1% 37.1%; /* User: #618934 */
-    --accent-foreground: 342 47.1% 93.1%; /* User Dark Text: #f6e5e9 */
+    --accent: 258 82% 38%; /* User Dark: #500fb3 */
+    --accent-foreground: 200 86% 92%; /* User Dark: #d9f2fc for text on Dark Accent */
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --ring: 346 48.9% 47.8%; /* User Primary: #b1435d */
+    --ring: 200 88% 49%; /* User Dark Primary: #11a8e8 */
     
-    --chart-1: 346 48.9% 47.8%; /* Primary */
-    --chart-2: 89 43.1% 37.1%;  /* Accent */
-    --chart-3: 67 44.9% 27.5%;  /* Secondary */
-    --chart-4: 346 49% 68%;    /* Lighter Primary */
-    --chart-5: 89 43% 57%;     /* Lighter Accent */
+    --chart-1: 200 88% 49%; /* Primary */
+    --chart-2: 258 82% 38%;  /* Accent */
+    --chart-3: 244 88% 30%;  /* Secondary */
+    --chart-4: 200 88% 69%;    /* Lighter Primary */
+    --chart-5: 258 82% 58%;     /* Lighter Accent */
 
-    --sidebar-background: 345 35% 7%; /* #160d0f */
-    --sidebar-foreground: 342 40% 90%;
-    --sidebar-primary: 346 49% 52%;
-    --sidebar-primary-foreground: 342 47.1% 93.1%;
-    --sidebar-accent: 67 45% 32%;
-    --sidebar-accent-foreground: 342 47.1% 93.1%;
-    --sidebar-border: 345 25% 12%;
-    --sidebar-ring: 346 48.9% 47.8%;
+    --sidebar-background: 200 70% 6%; /* Derived for Dark Sidebar BG */
+    --sidebar-foreground: 200 86% 90%;
+    --sidebar-primary: 200 88% 52%;
+    --sidebar-primary-foreground: 200 86% 92%;
+    --sidebar-accent: 244 88% 35%;
+    --sidebar-accent-foreground: 200 86% 92%;
+    --sidebar-border: 200 30% 12%;
+    --sidebar-ring: 200 88% 49%;
   }
 }
 
