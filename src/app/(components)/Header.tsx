@@ -38,7 +38,7 @@ export default function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 w-full border-b bg-background/75 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" legacyBehavior passHref>
           <a className="text-2xl font-bold font-headline text-primary hover:text-primary/80 transition-colors">
@@ -64,7 +64,7 @@ export default function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
+            <SheetContent side="right" className="w-full max-w-xs p-6 bg-background/80 dark:bg-background/70 backdrop-blur-lg">
               <div className="flex flex-col space-y-4">
                 <div className="flex justify-between items-center mb-4">
                    <Link href="/" legacyBehavior passHref>
