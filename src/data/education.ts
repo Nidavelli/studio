@@ -1,5 +1,5 @@
 import type { EducationItem } from '@/types';
-import { GraduationCap, Award, BookOpen, Laptop } from 'lucide-react';
+import { GraduationCap, Award, Laptop } from 'lucide-react';
 
 export const educationData: EducationItem[] = [
   {
