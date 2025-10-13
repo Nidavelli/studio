@@ -23,7 +23,6 @@ export type ContactFormState = {
 };
 
 export async function submitContactForm(
-  prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
   const validatedFields = contactFormSchema.safeParse({

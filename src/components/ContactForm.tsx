@@ -1,8 +1,8 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import { submitContactForm, type ContactFormState } from '@/app/contact/actions';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -35,28 +35,29 @@ function SubmitButton() {
 }
 
 export default function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, setState] = useState<ContactFormState>(initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    if (state.message) {
-      if (state.success) {
-        toast({
-          title: "Success!",
-          description: state.message,
-          variant: "default",
-        });
-        formRef.current?.reset();
-      } else {
-         toast({
-          title: "Error",
-          description: state.message,
-          variant: "destructive",
-        });
-      }
+  const handleSubmit = async (formData: FormData) => {
+    const result = await submitContactForm(formData);
+    setState(result);
+
+    if (result.success) {
+      toast({
+        title: "Success!",
+        description: result.message,
+        variant: "default",
+      });
+      formRef.current?.reset();
+    } else {
+      toast({
+        title: "Error",
+        description: result.message,
+        variant: "destructive",
+      });
     }
-  }, [state, toast]);
+  };
 
   return (
     <Card className="w-full max-w-lg mx-auto shadow-xl bg-card">
@@ -67,7 +68,7 @@ export default function ContactForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form ref={formRef} action={formAction} className="space-y-6">
+        <form ref={formRef} action={handleSubmit} className="space-y-6">
           <div>
             <Label htmlFor="name" className="text-foreground">Full Name</Label>
             <Input 
