@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useFormStatus } from 'react-dom';
@@ -42,22 +43,27 @@ export default function ContactForm() {
   const handleSubmit = async (formData: FormData) => {
     const result = await submitContactForm(formData);
     setState(result);
-
-    if (result.success) {
-      toast({
-        title: "Success!",
-        description: result.message,
-        variant: "default",
-      });
-      formRef.current?.reset();
-    } else {
-      toast({
-        title: "Error",
-        description: result.message,
-        variant: "destructive",
-      });
-    }
   };
+  
+  useEffect(() => {
+    if (state.message) {
+      if (state.success) {
+        toast({
+          title: 'Success!',
+          description: state.message,
+          variant: 'default',
+        });
+        formRef.current?.reset();
+      } else {
+        toast({
+          title: 'Error',
+          description: state.message,
+          variant: 'destructive',
+        });
+      }
+    }
+  }, [state, toast]);
+
 
   return (
     <Card className="w-full max-w-lg mx-auto shadow-xl bg-card">
