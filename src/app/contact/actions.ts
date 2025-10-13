@@ -4,7 +4,6 @@
 import { z } from 'zod';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const recipientEmail = 'kuriaj85@gmail.com';
 
 const contactFormSchema = z.object({
@@ -40,7 +39,17 @@ export async function submitContactForm(
       success: false,
     };
   }
+  
+  if (!process.env.RESEND_API_KEY) {
+    console.error('Resend API key is not set.');
+    return {
+        message: 'Sorry, the email service is not configured. Please contact the site administrator.',
+        success: false,
+        errors: {},
+    };
+  }
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const { name, email, message } = validatedFields.data;
 
   try {
