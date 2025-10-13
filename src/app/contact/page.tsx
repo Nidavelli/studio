@@ -22,11 +22,11 @@ export default function ContactPage() {
             </div>
             <div className="flex items-center gap-3">
               <Phone className="h-6 w-6 text-accent" />
-              <span className="text-foreground">(123) 456-7890 (Placeholder)</span>
+              <span className="text-foreground">+254741082057</span>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="h-6 w-6 text-accent" />
-              <span className="text-foreground">Nairobi, Kenya (Example Location)</span>
+              <span className="text-foreground">Nairobi, Kenya</span>
             </div>
           </div>
         </div>
