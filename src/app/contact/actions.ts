@@ -1,6 +1,11 @@
+
 'use server';
 
 import { z } from 'zod';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+const recipientEmail = 'kuriaj85@gmail.com';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -38,23 +43,39 @@ export async function submitContactForm(
 
   const { name, email, message } = validatedFields.data;
 
-  // In a real application, you would integrate an email sending service here.
-  // For example, using Resend, SendGrid, or Nodemailer with an SMTP server.
-  // The recipient email is kuriaj85@gmail.com
-  console.log('--- Contact Form Submission ---');
-  console.log('Name:', name);
-  console.log('Email:', email);
-  console.log('Message:', message);
-  console.log('Intended Recipient: kuriaj85@gmail.com');
-  console.log('--- End of Submission ---');
+  try {
+    const { data, error } = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>', // This must be a verified domain in Resend. 'onboarding@resend.dev' is for testing.
+      to: [recipientEmail],
+      subject: `New Message from ${name} via Portfolio`,
+      reply_to: email,
+      html: `<p>You have received a new message from your portfolio contact form.</p>
+             <p><strong>Name:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Message:</strong></p>
+             <p>${message}</p>`,
+    });
 
+    if (error) {
+      console.error('Resend error:', error);
+      return {
+        message: 'Sorry, something went wrong and I could not send your message. Please try again later.',
+        success: false,
+        errors: {},
+      };
+    }
 
-  // Simulate email sending delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  return {
-    message: 'Thank you for your message! James will get back to you soon.',
-    success: true,
-    errors: {},
-  };
+    return {
+      message: 'Thank you for your message! James will get back to you soon.',
+      success: true,
+      errors: {},
+    };
+  } catch (exception) {
+    console.error('Email sending exception:', exception);
+    return {
+      message: 'An unexpected error occurred. Please try again.',
+      success: false,
+      errors: {},
+    };
+  }
 }
