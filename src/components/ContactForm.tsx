@@ -2,7 +2,7 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import { submitContactForm, type ContactFormState } from '@/app/contact/actions';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -37,6 +37,7 @@ function SubmitButton() {
 export default function ContactForm() {
   const [state, formAction] = useFormState(submitContactForm, initialState);
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (state.message) {
@@ -46,11 +47,11 @@ export default function ContactForm() {
           description: state.message,
           variant: "default",
         });
-        // Consider resetting the form here if needed by managing form element values
-      } else if (Object.keys(state.errors || {}).length > 0) {
+        formRef.current?.reset();
+      } else {
          toast({
           title: "Error",
-          description: state.message || "Please correct the errors in the form.",
+          description: state.message,
           variant: "destructive",
         });
       }
@@ -66,7 +67,7 @@ export default function ContactForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form action={formAction} className="space-y-6">
+        <form ref={formRef} action={formAction} className="space-y-6">
           <div>
             <Label htmlFor="name" className="text-foreground">Full Name</Label>
             <Input 
@@ -104,9 +105,6 @@ export default function ContactForm() {
             {state.errors?.message && <p id="message-error" className="text-sm text-destructive mt-1">{state.errors.message.join(', ')}</p>}
           </div>
           <SubmitButton />
-          {state.message && !state.success && Object.keys(state.errors || {}).length === 0 && (
-             <p className="text-sm text-destructive mt-2">{state.message}</p>
-          )}
         </form>
       </CardContent>
     </Card>

@@ -70,21 +70,18 @@ export async function submitContactForm(
       return {
         message: 'Sorry, something went wrong and I could not send your message. Please try again later.',
         success: false,
-        errors: {},
       };
     }
 
     return {
       message: 'Thank you for your message! James will get back to you soon.',
       success: true,
-      errors: {},
     };
   } catch (exception) {
     console.error('Email sending exception:', exception);
     return {
       message: 'An unexpected error occurred. Please try again.',
       success: false,
-      errors: {},
     };
   }
 }
