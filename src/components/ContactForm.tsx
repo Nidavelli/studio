@@ -1,9 +1,9 @@
 
 'use client';
 
-import { useFormStatus } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 import { submitContactForm, type ContactFormState } from '@/app/contact/actions';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -36,15 +36,10 @@ function SubmitButton() {
 }
 
 export default function ContactForm() {
-  const [state, setState] = useState<ContactFormState>(initialState);
+  const [state, formAction] = useFormState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (formData: FormData) => {
-    const result = await submitContactForm(formData);
-    setState(result);
-  };
-  
   useEffect(() => {
     if (state.message) {
       if (state.success) {
@@ -54,9 +49,9 @@ export default function ContactForm() {
           variant: 'default',
         });
         formRef.current?.reset();
-      } else {
+      } else if (state.message) {
         toast({
-          title: 'Error',
+          title: state.errors ? 'Validation Error' : 'Error',
           description: state.message,
           variant: 'destructive',
         });
@@ -74,7 +69,7 @@ export default function ContactForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form ref={formRef} action={handleSubmit} className="space-y-6">
+        <form ref={formRef} action={formAction} className="space-y-6">
           <div>
             <Label htmlFor="name" className="text-foreground">Full Name</Label>
             <Input 

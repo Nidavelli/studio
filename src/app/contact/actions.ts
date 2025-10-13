@@ -23,6 +23,7 @@ export type ContactFormState = {
 };
 
 export async function submitContactForm(
+  prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
   const validatedFields = contactFormSchema.safeParse({
@@ -38,12 +39,13 @@ export async function submitContactForm(
       success: false,
     };
   }
-  
+
   const resendApiKey = process.env.RESEND_API_KEY;
-  if (!resendApiKey) {
-    console.error('Resend API key is not set.');
+
+  if (!resendApiKey || resendApiKey === 'YOUR_API_KEY_HERE') {
+    console.error('Resend API key is not set or is a placeholder.');
     return {
-        message: 'Sorry, the email service is not configured. Please contact the site administrator.',
+        message: 'The email service is not configured. Please contact the site administrator.',
         success: false,
         errors: {},
     };
