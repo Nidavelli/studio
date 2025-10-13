@@ -57,7 +57,7 @@ export async function submitContactForm(
   try {
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>', // This must be a verified domain in Resend. 'onboarding@resend.dev' is for testing.
-      to: [recipientEmail],
+      to: ['onboarding@resend.dev'], // For testing, send to the verified onboarding@resend.dev address.
       subject: `New Message from ${name} via Portfolio`,
       reply_to: email,
       html: `<p>You have received a new message from your portfolio contact form.</p>
@@ -70,13 +70,13 @@ export async function submitContactForm(
     if (error) {
       console.error('Resend error:', error);
       return {
-        message: 'Sorry, something went wrong and I could not send your message. Please try again later.',
+        message: `Sorry, something went wrong. Could not send message. Resend Error: ${error.message}`,
         success: false,
       };
     }
 
     return {
-      message: 'Thank you for your message! James will get back to you soon.',
+      message: 'Thank you for your message! It has been sent successfully.',
       success: true,
     };
   } catch (exception) {
