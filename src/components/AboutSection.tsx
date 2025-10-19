@@ -17,7 +17,7 @@ export default function AboutSection() {
         </h2>
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div className="md:col-span-1 flex flex-col items-center">
-            <div className="relative group p-1 animated-gradient-border rounded-[1.5em]">
+            <div className="relative group animated-gradient-border">
                 <Image
                   src="https://placehold.co/400x400.png"
                   alt="James Kuria"
@@ -56,7 +56,7 @@ export default function AboutSection() {
                 <div className="flex flex-wrap gap-3">
                   {skillsData.map((skill) => (
                      <div key={skill.id} className="animated-skill-badge">
-                        <Badge variant="secondary" className="border-transparent bg-transparent text-accent-foreground">
+                        <Badge variant="secondary" className="border-transparent bg-transparent text-accent-foreground text-sm">
                            {skill.icon && <skill.icon className="mr-2 h-4 w-4" />}
                            {skill.name}
                         </Badge>

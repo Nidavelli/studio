@@ -122,60 +122,68 @@ html {
   }
 
   .animated-gradient-border {
+    --border-size: 0.2rem;
     --border-angle: 0turn;
-    --border-size: 0.25rem;
-    --border-bg: conic-gradient(
-      from var(--border-angle),
-      hsl(var(--secondary)),
-      hsl(var(--accent)),
-      hsl(var(--primary)),
-      hsl(var(--accent)),
-      hsl(var(--secondary))
-    );
+    
+    --main-bg: conic-gradient(
+        from var(--border-angle),
+        hsl(var(--secondary)),
+        hsl(var(--accent)),
+        hsl(var(--primary)),
+        hsl(var(--accent)),
+        hsl(var(--secondary))
+      );
+    
     border: solid var(--border-size) transparent;
     border-radius: 1.5em;
+    --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, hsl(var(--primary)), hsl(var(--accent)), transparent 99%);
+    
     background: 
       hsl(var(--card)) padding-box,
-      var(--border-bg) border-box, 
+      var(--gradient-border) border-box, 
       hsl(var(--card)) border-box;
-    background-position: center center;
-    animation: bg-spin 3s linear infinite;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .animated-gradient-border:hover {
-    animation-play-state: paused;
-    transform: scale(1.05);
-  }
-
-  .animated-skill-badge {
-    --border-angle: 0turn;
-    --border-size: 2px;
-    --border-bg: conic-gradient(
-      from var(--border-angle),
-      hsl(var(--primary) / 0.5),
-      hsl(var(--accent) / 0.8),
-      hsl(var(--secondary) / 0.5)
-    );
     
-    border-radius: 9999px; /* rounded-full */
-    border: solid var(--border-size) transparent;
-    
-    background: 
-      hsl(var(--accent) / 0.1) padding-box,
-      var(--border-bg) border-box,
-      hsl(var(--accent) / 0.1) border-box;
-
     background-position: center center;
     animation: bg-spin 3s linear infinite;
     transition: transform 0.3s ease;
   }
 
+  .animated-gradient-border:hover {
+    animation-play-state: paused;
+     transform: scale(1.05);
+  }
+
+  .animated-skill-badge {
+    --border-size: 2px;
+    --border-angle: 0turn;
+    
+    --main-bg: conic-gradient(
+        from var(--border-angle),
+        hsl(var(--secondary)),
+        hsl(var(--accent)),
+        hsl(var(--primary)),
+        hsl(var(--accent)),
+        hsl(var(--secondary))
+      );
+    
+    border: solid var(--border-size) transparent;
+    border-radius: 9999px; /* rounded-full */
+    --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, hsl(var(--primary)), hsl(var(--accent)), transparent 99%);
+    
+    background: 
+      hsl(var(--accent) / 0.1) padding-box,
+      var(--gradient-border) border-box, 
+      hsl(var(--accent) / 0.1) border-box;
+    
+    background-position: center center;
+    animation: bg-spin 3s linear infinite;
+    transition: transform 0.3s ease;
+  }
+  
   .animated-skill-badge:hover {
     animation-play-state: paused;
     transform: scale(1.1);
   }
-
 
   @keyframes bg-spin {
     to {
