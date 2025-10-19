@@ -12,8 +12,8 @@ export const projectsData: Project[] = [
 - Overseeing procurement and supply of all necessary resources, tools, and labor.
 - Conducting regular site visits, inspections, and quality assurance checks to monitor progress and ensure compliance.
 - Preparing and submitting detailed progress reports, submittals, and invoices.`,
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'network cables',
+    image: 'https://picsum.photos/seed/1/600/400',
+    dataAiHint: 'network infrastructure',
     tags: ['Infrastructure', 'USAID', 'Government', 'Cabling'],
   },
   {
@@ -27,8 +27,8 @@ export const projectsData: Project[] = [
 - Managed day-to-day project operations, tracking milestones for modules like Complaints, Case Management, and Child Labour.
 - Supervised change management, training, and user adoption for an estimated 100,000 users across 52 counties.
 - Managed project risks using agile tools like JIRA and Bugzilla.`,
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'government building',
+    image: 'https://picsum.photos/seed/2/600/400',
+    dataAiHint: 'modern office',
     tags: ['ECMS', 'Government', 'Agile', 'JIRA', 'Change Management'],
   },
     {
@@ -42,8 +42,8 @@ export const projectsData: Project[] = [
 - Supervised the customization of the ERP & CRM system to meet IPOA’s operational and legal needs.
 - Coordinated and facilitated training sessions for IPOA staff on the new system.
 - Oversaw the post-implementation support phase, ensuring quick issue resolution.`,
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'law enforcement',
+    image: 'https://picsum.photos/seed/3/600/400',
+    dataAiHint: 'team collaboration',
     tags: ['ERP', 'CRM', 'Case Management', 'Government'],
   },
   {
@@ -57,8 +57,8 @@ export const projectsData: Project[] = [
 - Coordinated the project team to ensure adherence to quality standards, timelines, and budgets.
 - Conducted a gap analysis of ICT capabilities within Water Service Providers (WSPs).
 - Facilitated stakeholder communication, including workshops and validation sessions.`,
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'water infrastructure',
+    image: 'https://picsum.photos/seed/4/600/400',
+    dataAiHint: 'water technology',
     tags: ['ERP', 'GIS', 'ICT', 'Project Management'],
   },
   {
@@ -72,8 +72,8 @@ export const projectsData: Project[] = [
 - Supervised the design and implementation of digital solutions to automate manual processes.
 - Coordinated cross-functional teams to ensure smooth execution of digital transformation initiatives.
 - Provided training and capacity-building sessions for end-users to support adoption of new digital systems.`,
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'business meeting africa',
+    image: 'https://picsum.photos/seed/5/600/400',
+    dataAiHint: 'business process',
     tags: ['Digital Transformation', 'Process Automation', 'Grant Management'],
   },
   {
@@ -87,8 +87,8 @@ export const projectsData: Project[] = [
 - Managed the design of a digital transformation roadmap, outlining key technology introductions.
 - Coordinated the selection of digital tools to enhance grant management efficiencies.
 - Supported the M&E framework to ensure digital tools provided necessary data for tracking and reporting.`,
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'renewable energy solar',
+    image: 'https://picsum.photos/seed/6/600/400',
+    dataAiHint: 'renewable energy',
     tags: ['Grant Management', 'Digital Transformation', 'Agri-Business', 'Renewable Energy', 'M&E'],
   },
     {
@@ -102,8 +102,8 @@ export const projectsData: Project[] = [
 - Managed User Acceptance Testing (UAT) with the legal team to validate system usability and performance.
 - Oversaw system deployment and change management to ensure a smooth transition from manual to digital operations.
 - Established real-time dashboards for monitoring project progress and post-implementation usage.`,
-    image: 'https://placehold.co/600x400.png',
-    dataAiHint: 'legal law library',
+    image: 'https://picsum.photos/seed/7/600/400',
+    dataAiHint: 'legal document',
     tags: ['Legal Tech', 'SharePoint', 'UAT', 'System Deployment'],
   },
 ];
