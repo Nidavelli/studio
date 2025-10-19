@@ -45,7 +45,7 @@ export default function AboutSection() {
           </div>
           <div className="md:col-span-2">
             <p className="text-lg text-foreground mb-6">
-              Hello! I&apos;m James Kuria, a results-oriented professional with a passion for driving strategic initiatives and fostering innovation. With a strong background in project management and digital transformation, I excel at leading cross-functional teams to deliver complex projects on time and within budget.
+              Hello! I'm James Kuria, a results-oriented professional with a passion for driving strategic initiatives and fostering innovation. With a strong background in project management and digital transformation, I excel at leading cross-functional teams to deliver complex projects on time and within budget.
             </p>
             <p className="text-lg text-foreground mb-8">
               My experience spans various industries, allowing me to bring a versatile approach to problem-solving and a deep understanding of business dynamics. I am committed to continuous learning and leveraging technology to achieve sustainable growth and operational excellence.

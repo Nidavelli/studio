@@ -115,6 +115,12 @@ html {
 }
 
 @layer utilities {
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
   .animated-gradient-border {
     position: relative;
     overflow: hidden;
@@ -128,28 +134,18 @@ html {
     width: 250%; 
     height: 250%;
     background: conic-gradient(
-      from var(--angle, 0deg),
+      from var(--angle),
       hsl(var(--primary)),
       hsl(var(--accent)),
       hsl(var(--secondary)),
       hsl(var(--primary))
     );
-    transform: translate(-50%, -50%) rotate(var(--angle));
-    transition: transform 0.3s ease-in-out;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: --angle 4s linear;
     z-index: -1;
-    opacity: 1;
   }
 
   .group:hover .animated-gradient-border::before {
-    animation: rotate-gradient 4s linear infinite;
-  }
-
-  @keyframes rotate-gradient {
-    0% {
-      --angle: 0deg;
-    }
-    100% {
-      --angle: 360deg;
-    }
+    --angle: 360deg;
   }
 }
