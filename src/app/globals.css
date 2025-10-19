@@ -123,8 +123,6 @@ html {
 
   .animated-gradient-border {
     position: relative;
-    padding: 2px; /* Adjust border thickness */
-    border-radius: 9999px; /* Ensure it matches the image's border-radius */
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
   }
@@ -144,7 +142,7 @@ html {
       hsl(var(--secondary)),
       hsl(var(--primary))
     );
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%);
     transition: transform 0.4s ease-in-out;
   }
 
@@ -153,14 +151,22 @@ html {
   }
 
   .group:hover .animated-gradient-border::before {
-    transform: translate(-50%, -50%) rotate(360deg);
+    animation: spin 4s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
   }
   
   .animated-gradient-badge-container {
     position: relative;
     overflow: hidden;
     border-radius: 9999px; /* Matches the badge's rounded-full */
-    padding: 1px; /* Creates space for the border */
     transition: transform 0.3s ease-in-out;
   }
 
@@ -171,7 +177,7 @@ html {
     left: 50%;
     width: 300%;
     height: 300%;
-    z-index: -1;
+    z-index: 0;
     background: conic-gradient(
       from var(--angle),
       hsl(var(--primary)),
@@ -179,9 +185,9 @@ html {
       hsl(var(--secondary)),
       hsl(var(--primary))
     );
-    transform: translate(-50%, -50%) rotate(0deg);
-    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    transform: translate(-50%, -50%);
     opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
   }
   
   .group:hover .animated-gradient-badge-container {
@@ -189,7 +195,7 @@ html {
   }
 
   .group:hover .animated-gradient-badge-container::before {
-    transform: translate(-50%, -50%) rotate(360deg);
     opacity: 1;
+    animation: spin 4s linear infinite;
   }
 }
