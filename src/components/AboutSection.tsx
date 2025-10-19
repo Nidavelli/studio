@@ -17,25 +17,31 @@ export default function AboutSection() {
         </h2>
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div className="md:col-span-1 flex flex-col items-center">
-            <Image
-              src="https://placehold.co/400x400.png"
-              alt="James Kuria"
-              width={300}
-              height={300}
-              className="rounded-full shadow-lg border-4 border-primary mb-6"
-              data-ai-hint="professional portrait"
-            />
-             <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 w-full max-w-xs mb-2">
-                {/* This link is a placeholder. Replace # with the actual path to the resume PDF. */}
-                <a href="#" download="James_Kuria_Resume.pdf"> 
-                  <Download className="mr-2 h-5 w-5" /> Download Resume
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 w-full max-w-xs">
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="mr-2 h-5 w-5" /> View LinkedIn Profile
-                </a>
-              </Button>
+            <div className="relative group">
+              <div className="animated-gradient-border rounded-full p-1 transition-all">
+                  <Image
+                  src="https://placehold.co/400x400.png"
+                  alt="James Kuria"
+                  width={300}
+                  height={300}
+                  className="rounded-full shadow-lg"
+                  data-ai-hint="professional portrait"
+                />
+              </div>
+            </div>
+            <div className="w-full max-w-xs mt-6 space-y-2">
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 w-full">
+                  {/* This link is a placeholder. Replace # with the actual path to the resume PDF. */}
+                  <a href="#" download="James_Kuria_Resume.pdf"> 
+                    <Download className="mr-2 h-5 w-5" /> Download Resume
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 w-full">
+                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="mr-2 h-5 w-5" /> View LinkedIn Profile
+                  </a>
+                </Button>
+            </div>
           </div>
           <div className="md:col-span-2">
             <p className="text-lg text-foreground mb-6">

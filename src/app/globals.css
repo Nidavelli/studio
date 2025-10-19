@@ -113,3 +113,44 @@ html {
     @apply font-headline;
   }
 }
+
+@layer utilities {
+  .animated-gradient-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%; /* Make it larger to ensure coverage during rotation */
+    height: 200%;
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      hsl(var(--primary)),
+      hsl(var(--accent)),
+      hsl(var(--secondary)),
+      hsl(var(--primary))
+    );
+    transform: translate(-50%, -50%) rotate(var(--angle));
+    transition: transform 0.3s ease-out;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .group:hover .animated-gradient-border::before {
+    opacity: 1;
+    animation: rotate-gradient 4s linear infinite;
+  }
+
+  @keyframes rotate-gradient {
+    0% {
+      --angle: 0deg;
+    }
+    100% {
+      --angle: 360deg;
+    }
+  }
+}
