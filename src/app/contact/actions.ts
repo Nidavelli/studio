@@ -2,9 +2,7 @@
 'use server';
 
 import { z } from 'zod';
-import { Resend } from 'resend';
-
-const recipientEmail = 'kuriaj85@gmail.com';
+import nodemailer from 'nodemailer';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -40,49 +38,48 @@ export async function submitContactForm(
     };
   }
 
-  const resendApiKey = process.env.RESEND_API_KEY;
+  const { name, email, message } = validatedFields.data;
+  const { EMAIL_USER, EMAIL_APP_PASSWORD, RECIPIENT_EMAIL } = process.env;
 
-  if (!resendApiKey || resendApiKey === 'YOUR_API_KEY_HERE') {
-    console.error('Resend API key is not set or is a placeholder.');
+  if (!EMAIL_USER || !EMAIL_APP_PASSWORD || !RECIPIENT_EMAIL) {
+    console.error('Email service is not configured. Missing environment variables.');
     return {
-        message: 'The email service is not configured. Please contact the site administrator.',
-        success: false,
-        errors: {},
+      message: 'The email service is not configured. Please contact the site administrator.',
+      success: false,
+      errors: {},
     };
   }
 
-  const resend = new Resend(resendApiKey);
-  const { name, email, message } = validatedFields.data;
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: EMAIL_USER,
+      pass: EMAIL_APP_PASSWORD,
+    },
+  });
+
+  const mailOptions = {
+    from: `"${name}" <${email}>`,
+    to: RECIPIENT_EMAIL,
+    subject: `New Message from ${name} via Portfolio`,
+    replyTo: email,
+    html: `<p>You have received a new message from your portfolio contact form.</p>
+           <p><strong>Name:</strong> ${name}</p>
+           <p><strong>Email:</strong> ${email}</p>
+           <p><strong>Message:</strong></p>
+           <p>${message.replace(/\n/g, '<br>')}</p>`,
+  };
 
   try {
-    const { data, error } = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>', // This must be a verified domain in Resend. 'onboarding@resend.dev' is for testing.
-      to: ['onboarding@resend.dev'], // For testing, send to the verified onboarding@resend.dev address.
-      subject: `New Message from ${name} via Portfolio`,
-      reply_to: email,
-      html: `<p>You have received a new message from your portfolio contact form.</p>
-             <p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong></p>
-             <p>${message}</p>`,
-    });
-
-    if (error) {
-      console.error('Resend error:', error);
-      return {
-        message: `Sorry, something went wrong. Could not send message. Resend Error: ${error.message}`,
-        success: false,
-      };
-    }
-
+    await transporter.sendMail(mailOptions);
     return {
       message: 'Thank you for your message! It has been sent successfully.',
       success: true,
     };
-  } catch (exception) {
+  } catch (exception: any) {
     console.error('Email sending exception:', exception);
     return {
-      message: 'An unexpected error occurred. Please try again.',
+      message: `Sorry, something went wrong. Could not send message. Error: ${exception.message}`,
       success: false,
     };
   }
