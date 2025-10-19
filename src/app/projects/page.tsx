@@ -5,19 +5,20 @@ import type { Project } from '@/types';
 import { FadeIn } from '@/components/FadeIn';
 
 async function getProjectsWithAITags(): Promise<Project[]> {
-  const projectsWithAITags = await Promise.all(
-    projectsData.map(async (project) => {
-      try {
-        const aiResponse = await analyzeProjectTags({ achievements: project.achievements });
-        return { ...project, aiGeneratedTags: aiResponse.tags };
-      } catch (error) {
-        console.error(`Failed to analyze tags for project "${project.title}":`, error);
-        return { ...project, aiGeneratedTags: [] }; // Fallback to empty array on error
-      }
-    })
-  );
+  const projectsWithAITags: Project[] = [];
+  for (const project of projectsData) {
+    try {
+      const aiResponse = await analyzeProjectTags({ achievements: project.achievements });
+      projectsWithAITags.push({ ...project, aiGeneratedTags: aiResponse.tags });
+    } catch (error) {
+      console.error(`Failed to analyze tags for project "${project.title}":`, error);
+      // Fallback to empty array on error and still include the project
+      projectsWithAITags.push({ ...project, aiGeneratedTags: [] });
+    }
+  }
   return projectsWithAITags;
 }
+
 
 export default async function ProjectsPage() {
   const projects = await getProjectsWithAITags();
