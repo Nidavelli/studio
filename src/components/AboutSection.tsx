@@ -18,7 +18,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div className="md:col-span-1 flex flex-col items-center">
             <div className="relative group">
-              <div className="animated-gradient-border rounded-full p-1 transition-all">
+              <div className="animated-gradient-border rounded-full p-1 transition-transform duration-300 ease-in-out group-hover:scale-105">
                   <Image
                   src="https://placehold.co/400x400.png"
                   alt="James Kuria"
