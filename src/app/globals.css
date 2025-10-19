@@ -180,7 +180,7 @@ html {
       hsl(var(--primary))
     );
     transform: translate(-50%, -50%) rotate(0deg);
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
     opacity: 0;
   }
   
