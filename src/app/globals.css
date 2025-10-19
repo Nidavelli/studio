@@ -115,87 +115,71 @@ html {
 }
 
 @layer utilities {
-  @property --angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
+  @property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
   }
 
   .animated-gradient-border {
-    position: relative;
-    overflow: hidden;
+    --border-angle: 0turn;
+    --border-size: 0.25rem;
+    --border-bg: conic-gradient(
+      from var(--border-angle),
+      hsl(var(--secondary)),
+      hsl(var(--accent)),
+      hsl(var(--primary)),
+      hsl(var(--accent)),
+      hsl(var(--secondary))
+    );
+    border: solid var(--border-size) transparent;
+    border-radius: 1.5em;
+    background: 
+      hsl(var(--card)) padding-box,
+      var(--border-bg) border-box, 
+      hsl(var(--card)) border-box;
+    background-position: center center;
+    animation: bg-spin 3s linear infinite;
     transition: transform 0.3s ease-in-out;
   }
 
-  .animated-gradient-border::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 250%; 
-    height: 250%;
-    z-index: -1;
-    background: conic-gradient(
-      from var(--angle),
-      hsl(var(--primary)),
-      hsl(var(--accent)),
-      hsl(var(--secondary)),
-      hsl(var(--primary))
+  .animated-gradient-border:hover {
+    animation-play-state: paused;
+    transform: scale(1.05);
+  }
+
+  .animated-skill-badge {
+    --border-angle: 0turn;
+    --border-size: 2px;
+    --border-bg: conic-gradient(
+      from var(--border-angle),
+      hsl(var(--primary) / 0.5),
+      hsl(var(--accent) / 0.8),
+      hsl(var(--secondary) / 0.5)
     );
-    transform: translate(-50%, -50%);
-    transition: transform 0.4s ease-in-out;
+    
+    border-radius: 9999px; /* rounded-full */
+    border: solid var(--border-size) transparent;
+    
+    background: 
+      hsl(var(--accent) / 0.1) padding-box,
+      var(--border-bg) border-box,
+      hsl(var(--accent) / 0.1) border-box;
+
+    background-position: center center;
+    animation: bg-spin 3s linear infinite;
+    transition: transform 0.3s ease;
   }
 
-  .group:hover .animated-gradient-border {
-     transform: scale(1.05);
-  }
-
-  .group:hover .animated-gradient-border::before {
-    animation: spin 4s linear infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
-  }
-  
-  .animated-gradient-badge-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 9999px; /* Matches the badge's rounded-full */
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .animated-gradient-badge-container::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    z-index: 0;
-    background: conic-gradient(
-      from var(--angle),
-      hsl(var(--primary)),
-      hsl(var(--accent)),
-      hsl(var(--secondary)),
-      hsl(var(--primary))
-    );
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-  }
-  
-  .group:hover .animated-gradient-badge-container {
+  .animated-skill-badge:hover {
+    animation-play-state: paused;
     transform: scale(1.1);
   }
 
-  .group:hover .animated-gradient-badge-container::before {
-    opacity: 1;
-    animation: spin 4s linear infinite;
+
+  @keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
+    }
   }
 }

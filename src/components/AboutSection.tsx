@@ -17,17 +17,15 @@ export default function AboutSection() {
         </h2>
         <div className="grid md:grid-cols-3 gap-8 items-start">
           <div className="md:col-span-1 flex flex-col items-center">
-            <div className="relative group">
-              <div className="animated-gradient-border p-1 rounded-full">
+            <div className="relative group p-1 animated-gradient-border rounded-[1.5em]">
                 <Image
                   src="https://placehold.co/400x400.png"
                   alt="James Kuria"
                   width={300}
                   height={300}
-                  className="rounded-full shadow-lg relative z-10"
+                  className="rounded-2xl shadow-lg relative z-10"
                   data-ai-hint="professional portrait"
                 />
-              </div>
             </div>
             <div className="w-full max-w-xs mt-6 space-y-2">
               <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 w-full">
@@ -57,13 +55,11 @@ export default function AboutSection() {
               <CardContent>
                 <div className="flex flex-wrap gap-3">
                   {skillsData.map((skill) => (
-                     <div key={skill.id} className="group relative">
-                        <div className="animated-gradient-badge-container p-px">
-                          <Badge variant="secondary" className="relative z-10 px-3 py-1 text-sm bg-accent/10 text-accent border-accent/30 group-hover:bg-accent/20 transition-all duration-300">
-                            {skill.icon && <skill.icon className="mr-2 h-4 w-4" />}
-                            {skill.name}
-                          </Badge>
-                        </div>
+                     <div key={skill.id} className="animated-skill-badge">
+                        <Badge variant="secondary" className="border-transparent bg-transparent text-accent-foreground">
+                           {skill.icon && <skill.icon className="mr-2 h-4 w-4" />}
+                           {skill.name}
+                        </Badge>
                     </div>
                   ))}
                 </div>
