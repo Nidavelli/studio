@@ -123,7 +123,10 @@ html {
 
   .animated-gradient-border {
     position: relative;
+    padding: 2px; /* Adjust border thickness */
+    border-radius: 9999px; /* Ensure it matches the image's border-radius */
     overflow: hidden;
+    transition: transform 0.3s ease-in-out;
   }
 
   .animated-gradient-border::before {
@@ -133,6 +136,7 @@ html {
     left: 50%;
     width: 250%; 
     height: 250%;
+    z-index: -1;
     background: conic-gradient(
       from var(--angle),
       hsl(var(--primary)),
@@ -141,11 +145,14 @@ html {
       hsl(var(--primary))
     );
     transform: translate(-50%, -50%) rotate(0deg);
-    transition: all 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .group:hover .animated-gradient-border {
+     transform: scale(1.05);
   }
 
   .group:hover .animated-gradient-border::before {
-    --angle: 360deg;
     transform: translate(-50%, -50%) rotate(360deg);
   }
   
@@ -164,6 +171,7 @@ html {
     left: 50%;
     width: 300%;
     height: 300%;
+    z-index: -1;
     background: conic-gradient(
       from var(--angle),
       hsl(var(--primary)),
@@ -172,7 +180,7 @@ html {
       hsl(var(--primary))
     );
     transform: translate(-50%, -50%) rotate(0deg);
-    transition: all 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
     opacity: 0;
   }
   
@@ -181,7 +189,6 @@ html {
   }
 
   .group:hover .animated-gradient-badge-container::before {
-    --angle: 360deg;
     transform: translate(-50%, -50%) rotate(360deg);
     opacity: 1;
   }
