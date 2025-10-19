@@ -141,11 +141,48 @@ html {
       hsl(var(--primary))
     );
     transform: translate(-50%, -50%) rotate(0deg);
-    transition: --angle 4s linear;
-    z-index: -1;
+    transition: all 0.4s ease-in-out;
   }
 
   .group:hover .animated-gradient-border::before {
     --angle: 360deg;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  
+  .animated-gradient-badge-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 9999px; /* Matches the badge's rounded-full */
+    padding: 1px; /* Creates space for the border */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .animated-gradient-badge-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: conic-gradient(
+      from var(--angle),
+      hsl(var(--primary)),
+      hsl(var(--accent)),
+      hsl(var(--secondary)),
+      hsl(var(--primary))
+    );
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+  }
+  
+  .group:hover .animated-gradient-badge-container {
+    transform: scale(1.1);
+  }
+
+  .group:hover .animated-gradient-badge-container::before {
+    --angle: 360deg;
+    transform: translate(-50%, -50%) rotate(360deg);
+    opacity: 1;
   }
 }

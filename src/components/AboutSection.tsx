@@ -57,10 +57,14 @@ export default function AboutSection() {
               <CardContent>
                 <div className="flex flex-wrap gap-3">
                   {skillsData.map((skill) => (
-                    <Badge key={skill.id} variant="secondary" className="px-3 py-1 text-sm bg-accent/10 text-accent border-accent/30 hover:bg-accent/20">
-                      {skill.icon && <skill.icon className="mr-2 h-4 w-4" />}
-                      {skill.name}
-                    </Badge>
+                    <div key={skill.id} className="group relative">
+                      <div className="animated-gradient-badge-container">
+                        <Badge variant="secondary" className="px-3 py-1 text-sm bg-accent/10 text-accent border-accent/30 group-hover:bg-accent/20 transition-all duration-300">
+                          {skill.icon && <skill.icon className="mr-2 h-4 w-4" />}
+                          {skill.name}
+                        </Badge>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </CardContent>
