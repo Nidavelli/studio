@@ -135,9 +135,9 @@ html {
       hsl(var(--primary))
     );
     transform: translate(-50%, -50%) rotate(var(--angle));
-    transition: opacity 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     z-index: -1;
-    opacity: 1; /* Always visible */
+    opacity: 1;
   }
 
   .group:hover .animated-gradient-border::before {
