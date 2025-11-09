@@ -1,10 +1,11 @@
+
 import type { Project } from '@/types';
 
 export const projectsData: Project[] = [
   {
     id: '1',
     title: 'Embassy Residential Compound Network Upgrade',
-    organization: 'United States Embassy / Department of State(DOS)',
+    organization: 'Department of State(DOS)',
     role: 'Project Manager',
     duration: 'Aug 2023 - Present',
     achievements: `- Acting as the single point of contact between the US Embassy, Department of State(DOS), Quality Assurance, and subcontractors.
@@ -12,14 +13,14 @@ export const projectsData: Project[] = [
 - Overseeing procurement and supply of all necessary resources, tools, and labor.
 - Conducting regular site visits, inspections, and quality assurance checks to monitor progress and ensure compliance.
 - Preparing and submitting detailed progress reports, submittals, and invoices.`,
-    image: 'https://picsum.photos/seed/project1/600/400',
-    dataAiHint: 'government building',
+    image: 'https://placehold.co/600x400/1E2F59/FFFFFF?text=DOS',
+    dataAiHint: 'logo',
     tags: ['Infrastructure', 'DOS', 'Government', 'Cabling'],
   },
   {
     id: '2',
     title: 'Electronic Case Management System (ECMS) Implementation',
-    organization: 'International Labour Organization (ILO) / Ministry of Labour',
+    organization: 'International Labour Organization (ILO)',
     role: 'Project Manager',
     duration: 'Jul 2024 - Present',
     achievements: `- Led the end-to-end implementation of the Electronic Case Management System (ECMS).
@@ -27,8 +28,8 @@ export const projectsData: Project[] = [
 - Managed day-to-day project operations, tracking milestones for modules like Complaints, Case Management, and Child Labour.
 - Supervised change management, training, and user adoption for an estimated 100,000 users across 52 counties.
 - Managed project risks using agile tools like JIRA and Bugzilla.`,
-    image: 'https://picsum.photos/seed/project2/600/400',
-    dataAiHint: 'digital transformation',
+    image: 'https://placehold.co/600x400/003366/FFFFFF?text=ILO',
+    dataAiHint: 'logo',
     tags: ['ECMS', 'Government', 'Agile', 'JIRA', 'Change Management'],
   },
     {
@@ -42,8 +43,8 @@ export const projectsData: Project[] = [
 - Supervised the customization of the ERP & CRM system to meet IPOA’s operational and legal needs.
 - Coordinated and facilitated training sessions for IPOA staff on the new system.
 - Oversaw the post-implementation support phase, ensuring quick issue resolution.`,
-    image: 'https://picsum.photos/seed/project3/600/400',
-    dataAiHint: 'data analytics',
+    image: 'https://placehold.co/600x400/1E2F59/FFFFFF?text=INL',
+    dataAiHint: 'logo',
     tags: ['ERP', 'CRM', 'Case Management', 'Government'],
   },
   {
@@ -57,8 +58,8 @@ export const projectsData: Project[] = [
 - Coordinated the project team to ensure adherence to quality standards, timelines, and budgets.
 - Conducted a gap analysis of ICT capabilities within Water Service Providers (WSPs).
 - Facilitated stakeholder communication, including workshops and validation sessions.`,
-    image: 'https://picsum.photos/seed/project4/600/400',
-    dataAiHint: 'clean water',
+    image: 'https://placehold.co/600x400/00A8E1/FFFFFF?text=WSTF',
+    dataAiHint: 'logo',
     tags: ['ERP', 'GIS', 'ICT', 'Project Management'],
   },
   {
@@ -72,8 +73,8 @@ export const projectsData: Project[] = [
 - Supervised the design and implementation of digital solutions to automate manual processes.
 - Coordinated cross-functional teams to ensure smooth execution of digital transformation initiatives.
 - Provided training and capacity-building sessions for end-users to support adoption of new digital systems.`,
-    image: 'https://picsum.photos/seed/project5/600/400',
-    dataAiHint: 'african business',
+    image: 'https://placehold.co/600x400/00448B/FFFFFF?text=AUDA-NEPAD',
+    dataAiHint: 'logo',
     tags: ['Digital Transformation', 'Process Automation', 'Grant Management'],
   },
   {
@@ -87,8 +88,8 @@ export const projectsData: Project[] = [
 - Managed the design of a digital transformation roadmap, outlining key technology introductions.
 - Coordinated the selection of digital tools to enhance grant management efficiencies.
 - Supported the M&E framework to ensure digital tools provided necessary data for tracking and reporting.`,
-    image: 'https://picsum.photos/seed/project6/600/400',
-    dataAiHint: 'sustainable energy',
+    image: 'https://placehold.co/600x400/3E8A44/FFFFFF?text=KCV',
+    dataAiHint: 'logo',
     tags: ['Grant Management', 'Digital Transformation', 'Agri-Business', 'Renewable Energy', 'M&E'],
   },
     {
@@ -102,8 +103,8 @@ export const projectsData: Project[] = [
 - Managed User Acceptance Testing (UAT) with the legal team to validate system usability and performance.
 - Oversaw system deployment and change management to ensure a smooth transition from manual to digital operations.
 - Established real-time dashboards for monitoring project progress and post-implementation usage.`,
-    image: 'https://picsum.photos/seed/project7/600/400',
-    dataAiHint: 'legal tech',
+    image: 'https://placehold.co/600x400/6A0DAD/FFFFFF?text=CNK+Advocates',
+    dataAiHint: 'logo',
     tags: ['Legal Tech', 'SharePoint', 'UAT', 'System Deployment'],
   },
 ];
