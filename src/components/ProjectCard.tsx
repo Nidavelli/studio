@@ -16,12 +16,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <FadeIn>
       <Card className="h-full flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card">
-        <div className="relative w-full h-48 md:h-56">
+        <div className="relative w-full h-48 md:h-56 bg-card-foreground/5 p-4">
           <Image
             src={project.image}
             alt={project.title}
             layout="fill"
-            objectFit="cover"
+            objectFit="contain"
             className="transition-transform duration-300 group-hover:scale-105"
             data-ai-hint={project.dataAiHint as string || "project image"}
           />
