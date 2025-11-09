@@ -5,32 +5,28 @@ import type { Project } from '@/types';
 import { FadeIn } from '@/components/FadeIn';
 
 async function getProjectsWithAITags(): Promise<Project[]> {
-  // Prepare the input for the batch AI call
-  const projectsToAnalyze = projectsData.map(project => ({
-    id: project.id,
-    achievements: project.achievements,
-  }));
-
-  try {
-    // Make a single API call for all projects
-    const aiResponse = await analyzeProjectTags({ projects: projectsToAnalyze });
-
-    // Create a map of AI tags for easy lookup
-    const aiTagsMap = new Map(aiResponse.projects.map(p => [p.id, p.tags]));
-
-    // Merge the AI-generated tags back into the original project data
-    const projectsWithAITags = projectsData.map(project => ({
-      ...project,
-      aiGeneratedTags: aiTagsMap.get(project.id) || [],
-    }));
-
+    const projectsWithAITags = [...projectsData];
+  
+    for (const project of projectsWithAITags) {
+      try {
+        const input = {
+          projects: [{ id: project.id, achievements: project.achievements }]
+        };
+        const aiResponse = await analyzeProjectTags(input);
+        
+        if (aiResponse.projects.length > 0 && aiResponse.projects[0]) {
+          project.aiGeneratedTags = aiResponse.projects[0].tags;
+        } else {
+          project.aiGeneratedTags = [];
+        }
+      } catch (error) {
+        console.error(`Failed to analyze tags for project ${project.id}:`, error);
+        project.aiGeneratedTags = []; // Fallback to empty array on error
+      }
+    }
+  
     return projectsWithAITags;
-  } catch (error) {
-    console.error('Failed to analyze tags for projects in batch:', error);
-    // Fallback to empty array on error and still include all projects
-    return projectsData.map(project => ({ ...project, aiGeneratedTags: [] }));
   }
-}
 
 export default async function ProjectsPage() {
   const projects = await getProjectsWithAITags();
