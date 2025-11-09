@@ -35,7 +35,7 @@ export const projectsData: Project[] = [
     {
     id: '3',
     title: 'Enterprise Case Management System Implementation',
-    organization: 'US State Department (INL) / IPOA',
+    organization: 'Independent Policing Oversight Authority (IPOA)',
     role: 'Project Manager',
     duration: 'Jun 2016 - May 2024',
     achievements: `- Managed the implementation of an Enterprise Case Management system based on ERP & CRM platforms.
@@ -43,7 +43,7 @@ export const projectsData: Project[] = [
 - Supervised the customization of the ERP & CRM system to meet IPOA’s operational and legal needs.
 - Coordinated and facilitated training sessions for IPOA staff on the new system.
 - Oversaw the post-implementation support phase, ensuring quick issue resolution.`,
-    image: 'https://placehold.co/600x400.png?text=INL',
+    image: 'https://upload.wikimedia.org/wikipedia/en/e/ea/IPOA_Logo.jpeg',
     dataAiHint: 'logo',
     tags: ['ERP', 'CRM', 'Case Management', 'Government'],
   },
@@ -58,14 +58,14 @@ export const projectsData: Project[] = [
 - Coordinated the project team to ensure adherence to quality standards, timelines, and budgets.
 - Conducted a gap analysis of ICT capabilities within Water Service Providers (WSPs).
 - Facilitated stakeholder communication, including workshops and validation sessions.`,
-    image: 'https://placehold.co/600x400.png?text=WSTF',
+    image: 'https://cdn.brandfetch.io/idAJCNc29X/w/80/h/80/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1760421150134',
     dataAiHint: 'logo',
     tags: ['ERP', 'GIS', 'ICT', 'Project Management'],
   },
   {
     id: '5',
     title: 'Business Process Transformation',
-    organization: 'AUDA – NEPAD (African Union)',
+    organization: 'AUDA – NEPAD (under African Union)',
     role: 'Project Manager',
     duration: 'Dec 2022 - Present',
     achievements: `- Provided full lifecycle project management for the review and a transformation of key business processes.
@@ -73,7 +73,7 @@ export const projectsData: Project[] = [
 - Supervised the design and implementation of digital solutions to automate manual processes.
 - Coordinated cross-functional teams to ensure smooth execution of digital transformation initiatives.
 - Provided training and capacity-building sessions for end-users to support adoption of new digital systems.`,
-    image: 'https://placehold.co/600x400.png?text=AUDA-NEPAD',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Logo_AUDA-NEPAD.png',
     dataAiHint: 'logo',
     tags: ['Digital Transformation', 'Process Automation', 'Grant Management'],
   },
