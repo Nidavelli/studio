@@ -13,7 +13,7 @@ export const projectsData: Project[] = [
 - Overseeing procurement and supply of all necessary resources, tools, and labor.
 - Conducting regular site visits, inspections, and quality assurance checks to monitor progress and ensure compliance.
 - Preparing and submitting detailed progress reports, submittals, and invoices.`,
-    image: 'https://placehold.co/600x400/1E2F59/FFFFFF?text=DOS',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/U.S._Department_of_State_official_seal.svg/250px-U.S._Department_of_State_official_seal.svg.png',
     dataAiHint: 'logo',
     tags: ['Infrastructure', 'DOS', 'Government', 'Cabling'],
   },
