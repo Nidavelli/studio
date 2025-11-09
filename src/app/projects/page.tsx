@@ -4,26 +4,33 @@ import ProjectsDisplay from '@/components/ProjectsDisplay';
 import type { Project } from '@/types';
 import { FadeIn } from '@/components/FadeIn';
 
-// Helper function to introduce a delay
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
 async function getProjectsWithAITags(): Promise<Project[]> {
-  const projectsWithAITags: Project[] = [];
-  for (const project of projectsData) {
-    try {
-      const aiResponse = await analyzeProjectTags({ achievements: project.achievements });
-      projectsWithAITags.push({ ...project, aiGeneratedTags: aiResponse.tags });
-      // Add a small delay between each API call to respect rate limits
-      await delay(1000); 
-    } catch (error) {
-      console.error(`Failed to analyze tags for project "${project.title}":`, error);
-      // Fallback to empty array on error and still include the project
-      projectsWithAITags.push({ ...project, aiGeneratedTags: [] });
-    }
-  }
-  return projectsWithAITags;
-}
+  // Prepare the input for the batch AI call
+  const projectsToAnalyze = projectsData.map(project => ({
+    id: project.id,
+    achievements: project.achievements,
+  }));
 
+  try {
+    // Make a single API call for all projects
+    const aiResponse = await analyzeProjectTags({ projects: projectsToAnalyze });
+
+    // Create a map of AI tags for easy lookup
+    const aiTagsMap = new Map(aiResponse.projects.map(p => [p.id, p.tags]));
+
+    // Merge the AI-generated tags back into the original project data
+    const projectsWithAITags = projectsData.map(project => ({
+      ...project,
+      aiGeneratedTags: aiTagsMap.get(project.id) || [],
+    }));
+
+    return projectsWithAITags;
+  } catch (error) {
+    console.error('Failed to analyze tags for projects in batch:', error);
+    // Fallback to empty array on error and still include all projects
+    return projectsData.map(project => ({ ...project, aiGeneratedTags: [] }));
+  }
+}
 
 export default async function ProjectsPage() {
   const projects = await getProjectsWithAITags();
