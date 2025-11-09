@@ -65,7 +65,7 @@ export const projectsData: Project[] = [
   {
     id: '5',
     title: 'Business Process Transformation',
-    organization: 'AUDA – NEPAD (African Union)',
+    organization: 'AUDA-NEPAD (African Union)',
     role: 'Project Manager',
     duration: 'Dec 2022 - Present',
     achievements: `- Provided full lifecycle project management for the review and a transformation of key business processes.
