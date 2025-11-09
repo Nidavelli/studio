@@ -65,7 +65,7 @@ export const projectsData: Project[] = [
   {
     id: '5',
     title: 'Business Process Transformation',
-    organization: 'AUDA – NEPAD (under African Union)',
+    organization: 'AUDA – NEPAD (African Union)',
     role: 'Project Manager',
     duration: 'Dec 2022 - Present',
     achievements: `- Provided full lifecycle project management for the review and a transformation of key business processes.
@@ -88,7 +88,7 @@ export const projectsData: Project[] = [
 - Managed the design of a digital transformation roadmap, outlining key technology introductions.
 - Coordinated the selection of digital tools to enhance grant management efficiencies.
 - Supported the M&E framework to ensure digital tools provided necessary data for tracking and reporting.`,
-    image: 'https://placehold.co/600x400.png?text=KCV',
+    image: 'https://i.tracxn.com/logo/company/capture2_1584710710212.PNG?format=webp&height=120&width=120',
     dataAiHint: 'logo',
     tags: ['Grant Management', 'Digital Transformation', 'Agri-Business', 'Renewable Energy', 'M&E'],
   },
