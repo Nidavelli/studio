@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'httpshttps',
+        protocol: 'https',
         hostname: 'cdn.brandfetch.io',
         port: '',
         pathname: '/**',
